@@ -6,8 +6,7 @@ Wide & Deep recomendation system using tensorflow
 ## Introduction 
 
  
-![alt text](https://raw.githubusercontent.com/vivekalex61/resume_ner/main/images/)
-      
+![alt text](https://raw.githubusercontent.com//viveklalex/wide_deep_recommender/master/images/home_S.png)    
 #### Recomendation systems?
 
 A recommender system can be viewed as a search ranking
@@ -59,23 +58,30 @@ Generalisation, on the other hand, is based on transitivity of correlation and e
 
 #### How Wide & Deep achieve memorization and generalization ?
 
+
+![alt text](https://raw.githubusercontent.com//viveklalex/wide_deep_recommender/master/images/wide_deep.png)
+
+
 - **The Wide component**
 
 The wide model, often referred to in the literature as the linear model, memorizes users and their past product choices. Its inputs may consist simply of a user identifier and a product identifier, though other attributes relevant to the pattern (such as time of day) may also be incorporated.
 
-![alt text](https://raw.githubusercontent.com/vivekalex61/resume_ner/main/images)
+![alt text](https://raw.githubusercontent.com//viveklalex/wide_deep_recommender/master/images/wide.png)
 
 - **The Deep component**
 
 The deep portion of the model, so named as it is a deep neural network, examines the generalizable attributes of a user and their product choices. From these, the model learns the broader characteristics that tend to favor users’ product selections.
+
+
+![alt text](https://raw.githubusercontent.com//viveklalex/wide_deep_recommender/master/images/deep.png)
 
 - **Training wide and Deep jointly**
 
 The wide component and deep component are combined
 using a weighted sum of their output log odds as the prediction, which is then fed to one common logistic loss function for joint training. 
 
-![alt text](https://raw.githubusercontent.com/vivekalex61/resume_ner/main/images)
 
+![alt text](https://raw.githubusercontent.com//viveklalex/wide_deep_recommender/master/images/output.png)
 
 ## Implementation
 
@@ -95,9 +101,7 @@ Data consist of 48842 instances, mix of continuous and discrete (train=32561, te
 Columns :
 
 
-
-![alt text](https://raw.githubusercontent.com/vivekalex61/resume_ner/main/images)
-
+![alt text](https://raw.githubusercontent.com//viveklalex/wide_deep_recommender/master/images/columns.png)
 
 
 ### Data Preprocessing
@@ -113,7 +117,8 @@ Exploratory Data Analysis using Pandas and visualized using Matploilib
 During training, our input layer takes in training data and vocabularies and generate sparse and dense features together with a label. The wide component consists of the cross-product transformation of user installed apps and impression apps. For the deep part of the model, a 32-dimensional embedding vector is learned for each categorical feature. We concatenate all the embeddings together with the dense features, resulting in a dense vector of approximately 1200 dimensions. The concatenated vector is then fed into 3 ReLU layers, and finally the logistic output unit.
 
 
-![alt text](https://raw.githubusercontent.com/vivekalex61/resume_ner/main/images)
+![alt text](https://raw.githubusercontent.com//viveklalex/wide_deep_recommender/master/images/deep_structure.png)
+
 
 ### Model serving
 
@@ -153,8 +158,7 @@ AUC Score : .67
 
 Classification Report 
 
-![alt text](https://raw.githubusercontent.com/vivekalex61/resume_ner/main/images/)
-
+![alt text](https://raw.githubusercontent.com//viveklalex/wide_deep_recommender/master/images/class_report.png)
 
 
 ## Contributing
